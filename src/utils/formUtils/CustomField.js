@@ -1,21 +1,24 @@
 import React from "react";
 
-export const CustomField = (Element) => ({name, useForm, validate, fieldData, ...props}) => {
-	const labelName = name.replace(/^./, x=>x.toUpperCase())
+export const CustomField = (Element) => ({isLabel, name, useForm, validate, fieldData, ...props}) => {
+	const labelName = isLabel && name.replace(/^./, x=>x.toUpperCase())
 
 	return (
 		<div className="signIn__field">
-			<label htmlFor={name}>{labelName}</label>
-			<input
+			{isLabel && <label htmlFor={name}>{labelName}</label>}
+			<Element
 				{...useForm.register(name, validate&&validate)}
 				{...fieldData} {...props} autoComplete="on"
 			/>
-			<small>{useForm.errors?.[name]?.message}</small>
+			{validate && <small>{useForm.errors?.[name]?.message}</small>}
 		</div>
 	)
 }
 
+
+
 // name={'password'}
+//	isLabel={true or false}
 // useForm={{register, errors}}
 // validate={{
 // 	required: 'Field is required',

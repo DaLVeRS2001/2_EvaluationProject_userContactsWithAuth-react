@@ -17,6 +17,7 @@ let Input = CustomField('input')
 const LoginForm = (props) => {
 	const {register, handleSubmit, formState: {errors}, setError} = useForm()
 	const onSubmit = (formData) => {
+		console.log(formData)
 		// (()=>reset())()
 		props.signIn(formData)
 			.then((message) => {
@@ -35,6 +36,7 @@ const LoginForm = (props) => {
 				<div className="signIn__title">Sign in</div>
 
 				<Input
+					isLabel={true}
 					name={'email'}
 					useForm={{register, errors}}
 					validate={{required: 'Field is required'}}
@@ -42,6 +44,7 @@ const LoginForm = (props) => {
 				/>
 
 				<Input
+					isLabel={true}
 					name={'password'}
 					useForm={{register, errors}}
 					validate={{
@@ -50,6 +53,13 @@ const LoginForm = (props) => {
 						maxLength: {value: 20, message: 'Min length is 20'}
 					}}
 					fieldData={{type: 'password', id: 'password'}}
+				/>
+
+				<Input
+					isLabel={true}
+					name={'rememberMe'}
+					useForm={{register}}
+					fieldData={{type: 'checkbox', id: 'rememberMe'}}
 				/>
 
 				<button {...register("commonError")} className="signIn__submit">Sign In</button>

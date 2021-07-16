@@ -34,8 +34,6 @@ export const initializeApp = () => (dispatch) => {
 	Promise.all([promise]).then(()=> {
 		dispatch(initializedSuccess())
 	})
-
-	return promise
 }
 
 

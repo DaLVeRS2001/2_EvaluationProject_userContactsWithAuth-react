@@ -1,19 +1,36 @@
 {
-  "posts": [
+  "contacts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 2,
+      "email": "vasdasda.@mail.ru",
+      "name": "Vlad Biricov2",
+      "phone": "+79122312312",
+      "job": "Developer",
+      "company": "yandex"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 3,
+      "email": "vasdasda.@mail.ru",
+      "name": "XVlad BBiricov3",
+      "phone": "+79122312312",
+      "job": "Developer",
+      "company": "yandex"
+    },
+    {
+      "id": 3,
+      "email": "vasdasda.@mail.ru",
+      "name": "Vlad Biricov3",
+      "phone": "+79122312312",
+      "job": "Developer",
+      "company": "yandex"
+    },
+    {
+      "id": 3,
+      "email": "wvasdasda.@mail.ru",
+      "name": "WVlad ABiricov3",
+      "phone": "+79122312312",
+      "job": "Developer",
+      "company": "yandex"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

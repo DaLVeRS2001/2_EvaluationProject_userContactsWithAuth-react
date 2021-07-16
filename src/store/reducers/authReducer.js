@@ -75,6 +75,7 @@ export const getAuthData = () => (dispatch) => {
 
 
 	signOut = () => (dispatch) => {
+		console.log('fadsfasd')
 		authApi.logout()
 			.then((response) => {
 				if (response.resultCode === 0) {

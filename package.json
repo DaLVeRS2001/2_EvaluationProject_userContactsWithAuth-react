@@ -24,7 +24,7 @@
   "scripts": {
     "serve": "concurrently \"npm run start\" \"npm run mock\"",
     "start": "react-scripts start http://localhost:3000",
-    "mock": "json-server -w db.json",
+    "mock": "json-server -w db.json --port 8080",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
