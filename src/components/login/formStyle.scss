@@ -17,6 +17,7 @@
 
 
 .formWrapper {
+
   * {
     font-size: 12px;
   }
@@ -51,9 +52,6 @@
       input {
         @include base(null, 35px, 1px solid #9b9696, 5px, #efefef, null);
       }
-      small {
-        color: red;
-      }
     }
 
     .signIn__submit {
@@ -69,7 +67,7 @@
       @include base(null, null, 2px solid red, null, null, red);
       width: 70%;
       padding: 3px;
-      margin-top: 15px;
+      margin-top: 35px;
     }
 
     .signIn__captcha {

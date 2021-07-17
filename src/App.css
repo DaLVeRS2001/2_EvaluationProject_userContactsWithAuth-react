@@ -5,9 +5,3 @@
 	box-sizing: border-box;
 }
 
-.container{
-	max-width: 1270px;
-	min-width: 350px;
-	height: 100%;
-	margin: 0 auto;
-}

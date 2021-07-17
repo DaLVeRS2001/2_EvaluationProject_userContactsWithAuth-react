@@ -1,6 +1,5 @@
 .modal{
-
-position: absolute;
+ position: absolute;
   z-index: 1000;
   left: 0;
   top: 0;
@@ -12,22 +11,22 @@ position: absolute;
   align-items: center;
 
   .modal__content{
-    overflow: hidden;
+    overflow: auto;
     border-radius: 10px;
     width: 50%;
     height: 50%;
     border: 1px solid #9f9c9c;
     background: #fff;
+    position: relative;
 
     .modal__header{
       font-weight: bold;
       height: 50px;
       font-size: 18px;
       background: #c4c2c2;
-      width: 100%;
-    }
-    .modal__body{
-
     }
   }
 }
+
+
+

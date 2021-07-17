@@ -1,51 +1,59 @@
-import React, {createRef} from 'react'
+import React from 'react'
 import {Contacts} from "./Contacts";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {signOut} from "../../store/reducers/authReducer";
-import {addContact, getContacts, removeContact} from "../../store/reducers/contactsReducer";
-import Preloader from "../#common/Preloader/Preloader";
-import ContactModal from "./contactModal/ContactModal";
+import {
+	addContact,
+	addSearchValue,
+	getContacts,
+	removeContact,
+	updateContact
+} from "../../store/reducers/contactsReducer";
+import ContactModal from "./#common/contactModal/ContactModal";
 
 class ContactsContainer extends React.Component{
 	state = {
-		isModalOpen: false
+		isModalOpen: false,
+		modalType: null,
+		contactId: null
 	}
 	componentDidMount() {
-		if(this.props.isAuth){
 			this.props.getContacts()
-		}
 	}
 
-	removeHandler = (id) => {
-		this.props.removeContact(id)
+
+	handleContact = (data) =>{
+		this.state.modalType === 'post' && this.props.addContact(data)
+		this.state.modalType === 'put' && this.props.updateContact(this.state.contactId, data)
 	}
-	addHandler = (contact) => {
-		this.props.addContact(contact)
-	}
-	updateHandler = (id, modifiedContact) => {
-		this.props.updateContact(id, modifiedContact)
-	}
-	openModal = (isOpen, mode) => {
-		this.setState({isModalOpen: isOpen})
+
+	openModal = (isOpen, type, id) => {
+		this.setState({isModalOpen: isOpen, modalType: type, contactId: id})
+
 	}
 
 	render() {
 		if (this.props.isAuth) {
-			if(this.props.contacts.length){
 				return <>
-					{this.state.isModalOpen && <ContactModal openModal={this.openModal} />}
+					{this.state.isModalOpen && <ContactModal
+						contactId={this.state.contactId}
+						handleContact={this.handleContact}
+						openModal={this.openModal}
+						modalType={this.state.modalType}
+						contacts={this.props.contacts}
+					/>}
 					<Contacts
+						searchValue={this.props.searchValue}
+						addSearchValue={this.props.addSearchValue}
 						signOut={this.props.signOut}
-						removeContact={this.removeHandler}
-						addContact={this.addHandler}
-						updateContact={this.updateHandler}
+						removeContact={this.props.removeContact}
 						contacts={this.props.contacts}
 						openModal={this.openModal}
+						filteredContacts={this.props.filteredContacts}
 					/>
 				</>
-			}
-			return <Preloader/>
+
 		}
 		return <Redirect to={'/login'}/>
 	}
@@ -54,8 +62,13 @@ class ContactsContainer extends React.Component{
 const mapStateToProps = (state) => {
 	return {
 		isAuth: state.authReducer.isAuth,
-		contacts: state.contactsReducer.contacts
+		contacts: state.contactsReducer.contacts,
+		searchValue: state.contactsReducer.searchValue,
+		filteredContacts: state.contactsReducer.filteredContacts
 	}
 }
-
-export default connect(mapStateToProps, {signOut, getContacts, addContact, removeContact})(ContactsContainer)
+export default connect(
+	mapStateToProps,
+	{
+		signOut, getContacts, addContact, removeContact, updateContact, addSearchValue
+	})(ContactsContainer)

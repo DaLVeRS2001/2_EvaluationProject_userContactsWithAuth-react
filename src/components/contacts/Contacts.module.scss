@@ -1,16 +1,12 @@
 
-
-.contacts{
-
-  main{
+.contacts {
+  main {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
     margin: 10px;
 
-
-    .contacts__ava{
+    .contacts__ava {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,18 +22,19 @@
       font-weight: bold;
     }
 
-    .contacts__manipulation{
+    .contacts__manipulation {
 
       position: relative;
       text-align: center;
-      img{
+
+      img {
         cursor: pointer;
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
       }
     }
 
-    .contacts__contactModalToggle{
+    .contacts__contactModalToggle {
       text-align: center;
       position: absolute;
       right: 10px;
@@ -50,12 +47,10 @@
       opacity: 1;
       transition: all 0.3s;
 
-      &:hover{
+      &:hover {
         opacity: 0.7;
       }
-
-      span{
-
+      span {
         color: #fff;
         display: inline-block;
         margin-top: 25%;
@@ -64,21 +59,18 @@
       }
     }
 
-    table{
-      border-collapse: collapse;
+    table {
       text-align: left;
       width: 100%;
       margin-left: 10px;
-      tr{
-        position: relative;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      }
-      th{
+      th {
         padding: 5px 0 5px 0;
       }
-      td{
+
+      td {
         padding: 10px 0 10px 0;
       }
     }
   }
 }
+

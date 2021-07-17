@@ -7,10 +7,11 @@ export const CustomField = (Element) => ({isLabel, name, useForm, validate, fiel
 		<div className="signIn__field">
 			{isLabel && <label htmlFor={name}>{labelName}</label>}
 			<Element
+				data-error={useForm.errors?.[name] && 'fieldError'}
 				{...useForm.register(name, validate&&validate)}
 				{...fieldData} {...props} autoComplete="on"
 			/>
-			{validate && <small>{useForm.errors?.[name]?.message}</small>}
+			{validate && <small style={{color: 'red'}}>{useForm.errors?.[name]?.message}</small>}
 		</div>
 	)
 }
@@ -18,7 +19,7 @@ export const CustomField = (Element) => ({isLabel, name, useForm, validate, fiel
 
 
 // name={'password'}
-//	isLabel={true or false}
+// 	isLabel={true or false}
 // useForm={{register, errors}}
 // validate={{
 // 	required: 'Field is required',

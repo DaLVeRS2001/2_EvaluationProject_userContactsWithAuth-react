@@ -8,19 +8,12 @@ import ContactsContainer from "./components/contacts/ContactsContainer";
 import Login from "./components/login/Login";
 
 class App extends Component {
-  state = {
-    isPhotoModal: false
-  }
-
 
   componentDidMount() {
     this.props.initializeApp()
 
   }
 
-  contactModalToggle = () => {
-    this.setState({isPhotoModal: !this.state.isPhotoModal})
-  }
 
   render() {
     if (!this.props.initialized) return <Preloader/>
@@ -28,7 +21,7 @@ class App extends Component {
       <div className="App">
         <Route
           path={'/'}
-          render={()=> <ContactsContainer contactModalToggle={this.contactModalToggle}/>}
+          render={()=> <ContactsContainer />}
         />
         <Route
           path={'/login'}

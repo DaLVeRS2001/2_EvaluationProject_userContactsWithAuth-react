@@ -1,0 +1,46 @@
+form{
+  padding: 50px;
+  .form__part {
+    margin-right: 50px;
+    display: flex;
+
+    input {
+      outline: none;
+      border: none;
+      width: 90%;
+      margin: 30px 50px 5px 0;
+      border-bottom: 1px solid #9b9696;
+
+      &:focus {
+        border-bottom: 1px solid #07e50a;
+      }
+      &[data-error='fieldError'] {
+        border-bottom: 1px solid #ff0b26;
+      }
+    }
+    small{
+      position: absolute;
+    }
+  }
+
+  button{
+    position: relative;
+    top: 30px;
+
+    border: none;
+    background: #000;
+
+    width: 36%;
+    height: 35px;
+
+    border-radius: 10px;
+    transition: all .3s;
+
+    cursor: pointer;
+    color: white;
+
+    &:hover{
+      background: #676767;
+    }
+  }
+}

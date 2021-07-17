@@ -5,19 +5,23 @@ import pencil from '../../assets/images/icons/pencil.png'
 import basket from '../../assets/images/icons/basket.png'
 
 export const Contacts = (props) => {
-	const tableHeaders = ['Name', 'Email', 'Phone', 'Job', 'Company']
+	const tableHeaders = ['Icon', 'Name', 'Email', 'Phone', 'Job', 'Company'],
+		contacts = props.contacts
+	if(contacts.length){
+
+	}
 
 
-	console.log(props)
 	return <div className={s.contacts}>
-		<Header signOut={props.signOut}/>
+		<Header
+			searchValue={props.searchValue}
+			addSearchValue={props.addSearchValue}
+			signOut={props.signOut}
+		/>
 		<main>
 			<table>
 				<thead>
 				<tr>
-					<th>
-						Icon
-					</th>
 					{
 						tableHeaders.map(header => {
 							return <th key={header}>{header}</th>
@@ -27,11 +31,11 @@ export const Contacts = (props) => {
 				</thead>
 				<tbody>
 				{
-					props.contacts.map(contact=> {
+					props.filteredContacts.map((contact) => {
 						const firstLetters = contact.name.split(" ").map((i) => i[0]).join('')
 						//цикл в цикле не круто, но я думаю от этого не будет много проблем
 						return (
-							<tr key={contact.name}>
+							<tr key={contact.id}>
 								<td>
 									<div className={s.contacts__ava}>{firstLetters}</div>
 								</td>
@@ -42,8 +46,14 @@ export const Contacts = (props) => {
 								<td>{contact.company}</td>
 								<td>
 									<div className={s.contacts__manipulation}>
-										<img onClick={props.updateContact.bind(null, contact.id, contact)} src={pencil} alt="nothing"/>
-										<img onClick={props.removeContact.bind(null, contact.id)} src={basket} alt="nothing"/>
+										<img
+											onClick={() => props.openModal(true, 'put', contact.id)}
+											src={pencil} alt="nothing"
+										/>
+										<img
+											id={'remove'} src={basket} alt="nothing"
+											onClick={props.removeContact.bind(null, contact.id)}
+										/>
 									</div>
 								</td>
 							</tr>
@@ -52,23 +62,12 @@ export const Contacts = (props) => {
 				}
 				</tbody>
 			</table>
-
-
-			<div onClick={()=> props.openModal(true)} className={s.contacts__contactModalToggle}>
+			<div
+				onClick={() => props.openModal(true, 'post')}
+				className={s.contacts__contactModalToggle}
+			>
 				<span>+</span>
 			</div>
 		</main>
 	</div>
 }
-
-
-// {props.contacts.map(i=>{
-// 	return (
-// 		<div>
-// 			<span>{i.name} </span>
-// 			<button onClick={handler2.bind(null, i.id)}>Remove {i.name}</button>
-// 		</div>
-// 	)
-// })}
-// <button onClick={handler}>SET</button>
-

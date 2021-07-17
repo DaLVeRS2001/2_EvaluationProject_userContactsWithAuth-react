@@ -17,7 +17,6 @@ let Input = CustomField('input')
 const LoginForm = (props) => {
 	const {register, handleSubmit, formState: {errors}, setError} = useForm()
 	const onSubmit = (formData) => {
-		console.log(formData)
 		// (()=>reset())()
 		props.signIn(formData)
 			.then((message) => {
@@ -64,7 +63,8 @@ const LoginForm = (props) => {
 
 				<button {...register("commonError")} className="signIn__submit">Sign In</button>
 
-				{errors.commonError && <div className={"signIn__commonError"}>{errors.commonError?.message}</div>}
+				{errors.commonError &&
+				<div className={"signIn__commonError"}>{errors.commonError?.message}</div>}
 
 				{props.captchaUrl && <div className={"signIn__captcha"}>
 					<img src={props.captchaUrl} alt=""/><br/>
@@ -77,7 +77,11 @@ const LoginForm = (props) => {
 }
 
 const Login = (props) => {
-	return <LoginForm  signIn={props.signIn} captchaUrl={props.captchaUrl} isAuth={props.isAuth}/>
+	return <LoginForm
+		signIn={props.signIn}
+		captchaUrl={props.captchaUrl}
+		isAuth={props.isAuth}
+	/>
 }
 
 let mapStateToProps = (state) => {

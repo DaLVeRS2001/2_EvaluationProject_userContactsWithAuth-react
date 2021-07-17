@@ -1,36 +1,20 @@
 {
   "contacts": [
     {
-      "id": 2,
-      "email": "vasdasda.@mail.ru",
-      "name": "Vlad Biricov2",
-      "phone": "+79122312312",
-      "job": "Developer",
-      "company": "yandex"
+      "company": "asdfasdf",
+      "job": "asdfaf",
+      "phone": "+79848484848",
+      "email": "vladbiricov@mail.ru",
+      "name": "wwww asdfasdf",
+      "id": 1
     },
     {
-      "id": 3,
-      "email": "vasdasda.@mail.ru",
-      "name": "XVlad BBiricov3",
-      "phone": "+79122312312",
-      "job": "Developer",
-      "company": "yandex"
-    },
-    {
-      "id": 3,
-      "email": "vasdasda.@mail.ru",
-      "name": "Vlad Biricov3",
-      "phone": "+79122312312",
-      "job": "Developer",
-      "company": "yandex"
-    },
-    {
-      "id": 3,
-      "email": "wvasdasda.@mail.ru",
-      "name": "WVlad ABiricov3",
-      "phone": "+79122312312",
-      "job": "Developer",
-      "company": "yandex"
+      "company": "asfasf",
+      "job": "asf",
+      "phone": "+79848484848",
+      "email": "vladbiricov@mail.ru",
+      "name": "asfa sfasf",
+      "id": 2
     }
   ]
 }
