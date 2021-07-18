@@ -6,33 +6,7 @@
     align-items: flex-end;
     margin: 10px;
 
-    .contacts__ava {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 28px;
-      height: 28px;
 
-      background: #1546c8;
-      border-radius: 50%;
-
-      text-transform: uppercase;
-      color: #fff;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .contacts__manipulation {
-
-      position: relative;
-      text-align: center;
-
-      img {
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
-      }
-    }
 
     .contacts__contactModalToggle {
       text-align: center;
@@ -59,18 +33,7 @@
       }
     }
 
-    table {
-      text-align: left;
-      width: 100%;
-      margin-left: 10px;
-      th {
-        padding: 5px 0 5px 0;
-      }
 
-      td {
-        padding: 10px 0 10px 0;
-      }
-    }
   }
 }
 

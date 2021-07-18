@@ -48,7 +48,7 @@ const LoginForm = (props) => {
 					useForm={{register, errors}}
 					validate={{
 						required: 'Field is required',
-						minLength: {value: 6, message: 'Min length is 6'},
+						minLength: {value: 3, message: 'Min length is 3'},
 						maxLength: {value: 20, message: 'Min length is 20'}
 					}}
 					fieldData={{type: 'password', id: 'password'}}

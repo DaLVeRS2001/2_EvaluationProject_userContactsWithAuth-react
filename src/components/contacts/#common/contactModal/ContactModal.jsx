@@ -15,6 +15,7 @@ const ContactModal = (props) => {
 				<header className={s.modal__header}>Create contact</header>
 				<main>
 					<ContactForm
+						vpWidth={props.vpWidth}
 						contactId={props.contactId}
 						openModal={props.openModal}
 						modalType={props.modalType}

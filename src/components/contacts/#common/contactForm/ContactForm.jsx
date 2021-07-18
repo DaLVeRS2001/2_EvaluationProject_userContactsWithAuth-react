@@ -17,7 +17,6 @@ const ContactForm = (props) => {
 		(() => reset())();
 		props.openModal(false);
 	}
-
 	const setDefaultValue = (nameField) => {
 		if(props.modalType === 'put'){
 			const defaultValue = props.contacts.find(item=> item.id === props.contactId),
@@ -31,8 +30,8 @@ const ContactForm = (props) => {
 	}
 
 
-	return <form onSubmit={handleSubmit(onSubmit)}>
-		<div className={s.form__part}>
+	return <form className={s.modalForm} onSubmit={handleSubmit(onSubmit)}>
+		<div className={s.modalForm__part}>
 			<Input
 				name={'firstName'} isLabel={false} useForm={{register, errors}}
 				validate={{
@@ -57,7 +56,7 @@ const ContactForm = (props) => {
 		</div>
 
 
-		<div className={s.form__part}>
+		<div className={s.modalForm__part}>
 			<Input
 				name={'company'} isLabel={false} useForm={{register, errors}}
 				validate={{
@@ -78,7 +77,7 @@ const ContactForm = (props) => {
 		</div>
 
 
-		<div className={s.form__part}>
+		<div className={s.modalForm__part} >
 			<Input
 				name={'phone'} isLabel={false} useForm={{register, errors}}
 				validate={{

@@ -4,7 +4,7 @@ export const CustomField = (Element) => ({isLabel, name, useForm, validate, fiel
 	const labelName = isLabel && name.replace(/^./, x=>x.toUpperCase())
 
 	return (
-		<div className="signIn__field">
+		<div data-field={'field'} className="signIn__field">
 			{isLabel && <label htmlFor={name}>{labelName}</label>}
 			<Element
 				data-error={useForm.errors?.[name] && 'fieldError'}

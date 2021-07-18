@@ -16,10 +16,16 @@ class ContactsContainer extends React.Component{
 	state = {
 		isModalOpen: false,
 		modalType: null,
-		contactId: null
+		contactId: null,
+		vpWidth: 0
 	}
+
 	componentDidMount() {
-			this.props.getContacts()
+		this.setState({vpWidth: window.innerWidth})
+		this.props.getContacts()
+		window.addEventListener('resize', (e) => {
+			this.setState({vpWidth: e.target.innerWidth})
+		})
 	}
 
 
@@ -37,6 +43,7 @@ class ContactsContainer extends React.Component{
 		if (this.props.isAuth) {
 				return <>
 					{this.state.isModalOpen && <ContactModal
+						vpWidth={this.state.vpWidth}
 						contactId={this.state.contactId}
 						handleContact={this.handleContact}
 						openModal={this.openModal}
@@ -44,11 +51,11 @@ class ContactsContainer extends React.Component{
 						contacts={this.props.contacts}
 					/>}
 					<Contacts
+						vpWidth={this.state.vpWidth}
 						searchValue={this.props.searchValue}
 						addSearchValue={this.props.addSearchValue}
 						signOut={this.props.signOut}
 						removeContact={this.props.removeContact}
-						contacts={this.props.contacts}
 						openModal={this.openModal}
 						filteredContacts={this.props.filteredContacts}
 					/>
