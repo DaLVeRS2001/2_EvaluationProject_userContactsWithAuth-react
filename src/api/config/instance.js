@@ -2,8 +2,8 @@ import * as axios from "axios";
 
 const instance = axios.create({
 	withCredentials: true,
-	headers: {'API-KEY': '7e2aacc9-f32a-4ca9-b1d4-7577f4432c28'},
-	baseURL: 'https://social-network.samuraijs.com/api/1.0/'
+	headers: {'API-KEY': '655c325f-f4b3-44cd-8c93-20f2b75dddb0'},
+	baseURL: 'https://social-network.samuraijs.com/api/1.0'
 })
 
 export default instance
