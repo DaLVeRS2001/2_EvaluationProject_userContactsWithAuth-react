@@ -22,7 +22,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "serve": "concurrently \"npm run start\" \"npm run mock\"",
+    "serve": "concurrently \"npm run mock\" \"npm run start\"",
     "start": "react-scripts start http://localhost:3000",
     "mock": "json-server -w db.json --port 8080",
     "build": "react-scripts build",
