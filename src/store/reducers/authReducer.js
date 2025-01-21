@@ -9,6 +9,7 @@ const initialState = {
 	id: null,
 	email: null,
 	login: null,
+	password: null,
 	isAuth: false,
 	captchaUrl: null
 }
@@ -33,55 +34,40 @@ const authReducer = (state=initialState, action) => {
 		default:
 			return state
 	}
-	// eslint-disable-next-line no-unreachable
-	return state
 }
 
 
 //                                       ACTION CREATORS
-const setAuthUserData = (id, email, login, isAuth) =>
-		({type: SET_AUTH_USER_DATA, data: {id, email, login, isAuth}}),
+const setAuthUserData = (id, email, login, password, isAuth) =>
+		({type: SET_AUTH_USER_DATA, data: {id, email, login, password, isAuth}}),
 	addCaptcha = (url) => ({type: ADD_CAPTCHA, url}),
 	clearCaptcha = () => ({type: CLEAR_CAPTCHA})
 
 
 //                                           THUNKS
 export const getAuthData = () => (dispatch) => {
-		return authApi.me()
-			.then(response => {
-				if (response.resultCode === 0) {
-					let {id, email, login} = response.data
-					dispatch(setAuthUserData(id, email, login, true))
-				}
-			})
+	localStorage.removeItem('credentials')
+	const fakeCredentials = JSON.stringify({id: 1, email:'hewxzz@yandex.ru', login:'hewxzz@yandex.ru', password: 'hewxzz'})
+	localStorage.setItem('credentials', fakeCredentials)
+	const isAuth = localStorage.getItem('isAuth') === 'true'
+	if(isAuth) {
+		const fakeCredentials = JSON.parse(localStorage.getItem('credentials'))
+		dispatch(setAuthUserData(fakeCredentials.id, fakeCredentials.email, fakeCredentials.login, fakeCredentials.password, true ))
+	} 
 	},
 	signIn = (formData) => (dispatch) => {
-		return authApi.login(formData)
-			.then((response) => {
-				if (response.resultCode === 0) {
-					dispatch(getAuthData())
-					dispatch(clearCaptcha())
-				} else {
-					let message = response.messages.length > 0 ? response.messages[0] : 'some error'
-					response.resultCode === 10 &&
-					authApi.getCaptcha()
-						.then(response => {
-							dispatch(addCaptcha(response.url))
-						})
-					return message
-				}
-			})
+		const fakeCredentials = JSON.parse(localStorage.getItem('credentials'))
+		const matchedEmail = formData.email === fakeCredentials.email
+		const matchedPassword = formData.password === fakeCredentials.password
+		console.log(fakeCredentials, formData, matchedEmail, matchedPassword)
+		if(matchedEmail && matchedPassword) {
+			localStorage.setItem('isAuth', true)
+			dispatch(setAuthUserData(fakeCredentials.id, fakeCredentials.email, fakeCredentials.login, fakeCredentials.password, true ))
+		}
 	},
-
-
 	signOut = () => (dispatch) => {
-		console.log('fadsfasd')
-		authApi.logout()
-			.then((response) => {
-				if (response.resultCode === 0) {
-					dispatch(setAuthUserData(null, null, null, false))
-				}
-			})
+		localStorage.setItem('isAuth', false)
+		dispatch(setAuthUserData(null, null, null, null, false))
 	}
 
 

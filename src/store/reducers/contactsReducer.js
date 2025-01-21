@@ -43,24 +43,29 @@ const setContacts = (contacts) => ({type: SET_CONTACTS, contacts}),
 
 //                                          THUNKS
 export const getContacts = () => (dispatch) => {
-		contactsApi.getContacts()
-			.then(contacts => {
-				dispatch(setContacts(contacts))
-				dispatch(setFilteredContacts)
-
-			})
+	const contacts = JSON.parse(localStorage.getItem('contacts'))?.map(el=> JSON.parse(el)) ?? []
+	dispatch(setContacts(contacts))
+	dispatch(setFilteredContacts)
 	},
 	addContact = (contact) => (dispatch) => {
-		contactsApi.addContact(contact)
-			.then(() => dispatch(getContacts()))
+		const contacts = JSON.parse(localStorage.getItem('contacts'))?.map(el=> JSON.parse(el)) ?? []
+		const stringified = [...contacts, contact].map(el => JSON.stringify(el))
+		localStorage.setItem('contacts', JSON.stringify(stringified))
+		dispatch(getContacts())
 	},
 	removeContact = (id) => (dispatch) => {
-		contactsApi.removeContact(id)
-			.then(() => dispatch(getContacts()))
+		const contacts = JSON.parse(localStorage.getItem('contacts'))?.map(el=> JSON.parse(el)).filter(el=> el.id !== id)
+		const stringified = contacts.map(el => JSON.stringify(el))
+		localStorage.setItem('contacts', JSON.stringify(stringified))
+		dispatch(getContacts())
 	},
 	updateContact = (id, modifiedContact) => (dispatch) => {
-		contactsApi.updateContact(id, modifiedContact)
-			.then(() => dispatch(getContacts()))
+		const contacts = JSON.parse(localStorage.getItem('contacts'))?.map(el=> JSON.parse(el))
+		const contactIndex = contacts.findIndex(el=> el.id === id)
+		contacts.splice(contactIndex, 1, modifiedContact)
+		const stringified = contacts.map(el => JSON.stringify(el))
+		localStorage.setItem('contacts', JSON.stringify(stringified))
+		dispatch(getContacts())
 	},
 	addSearchValue = (value) => (dispatch) => {
 		dispatch(setSearchValue(value))
