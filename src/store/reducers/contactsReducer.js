@@ -1,4 +1,3 @@
-import contactsApi from "../../api/contactsApi";
 
 const SET_CONTACTS = 'SET_CONTACTS',
 	SET_SEARCH_VALUE = 'SET_SEARCH_VALUE',
@@ -71,9 +70,6 @@ export const getContacts = () => (dispatch) => {
 		dispatch(setSearchValue(value))
 		dispatch(setFilteredContacts)
 	}
-
-
-
 
 
 export default contactsReducer

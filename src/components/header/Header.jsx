@@ -10,7 +10,7 @@ const Header = (props) => {
 
   return (
     <header>
-      <div className={s.header__title}>Contacts List</div>
+      <div className={s.header__title}>Contact List (Made by Глеб)</div>
       <input
         onInput={searchHandler}
         value={props.searchValue}
