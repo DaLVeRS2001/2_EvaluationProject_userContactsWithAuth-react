@@ -14,7 +14,17 @@ const ContactForm = (props) => {
   } = useForm();
   const onSubmit = (data) => {
     const { firstName, lastName, ...other } = data;
-    const correctData = { ...other, name: firstName + ' ' + lastName };
+
+    const correctData = {
+      ...other,
+      name: firstName + ' ' + lastName,
+      id:
+        props.modalType === 'post'
+          ? !props.contacts.length
+            ? 1
+            : props.contacts[0].id + 1
+          : props.contactId,
+    };
 
     props.handleContact(correctData);
     (() => reset())();
