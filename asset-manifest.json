@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/2_EvaluationProject_userContactsWithAuth-react/static/css/main.c3c6bc3d.chunk.css",
+    "main.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.32c0285d.chunk.js",
+    "main.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.32c0285d.chunk.js.map",
+    "runtime-main.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/runtime-main.b6948882.js",
+    "runtime-main.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/runtime-main.b6948882.js.map",
+    "static/js/2.d9e64abf.chunk.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/2.d9e64abf.chunk.js",
+    "static/js/2.d9e64abf.chunk.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/2.d9e64abf.chunk.js.map",
+    "index.html": "/2_EvaluationProject_userContactsWithAuth-react/index.html",
+    "static/css/main.c3c6bc3d.chunk.css.map": "/2_EvaluationProject_userContactsWithAuth-react/static/css/main.c3c6bc3d.chunk.css.map",
+    "static/js/2.d9e64abf.chunk.js.LICENSE.txt": "/2_EvaluationProject_userContactsWithAuth-react/static/js/2.d9e64abf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6948882.js",
+    "static/js/2.d9e64abf.chunk.js",
+    "static/css/main.c3c6bc3d.chunk.css",
+    "static/js/main.32c0285d.chunk.js"
+  ]
+}
