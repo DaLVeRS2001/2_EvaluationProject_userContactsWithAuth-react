@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/2_EvaluationProject_userContactsWithAuth-react/static/css/main.c3c6bc3d.chunk.css",
-    "main.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.32c0285d.chunk.js",
-    "main.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.32c0285d.chunk.js.map",
+    "main.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.637cff7f.chunk.js",
+    "main.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/main.637cff7f.chunk.js.map",
     "runtime-main.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/runtime-main.b6948882.js",
     "runtime-main.js.map": "/2_EvaluationProject_userContactsWithAuth-react/static/js/runtime-main.b6948882.js.map",
     "static/js/2.d9e64abf.chunk.js": "/2_EvaluationProject_userContactsWithAuth-react/static/js/2.d9e64abf.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.b6948882.js",
     "static/js/2.d9e64abf.chunk.js",
     "static/css/main.c3c6bc3d.chunk.css",
-    "static/js/main.32c0285d.chunk.js"
+    "static/js/main.637cff7f.chunk.js"
   ]
 }
