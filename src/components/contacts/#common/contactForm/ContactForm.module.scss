@@ -1,11 +1,9 @@
-
-div[data-field='field']{
+div[data-field='field'] {
   position: relative;
   width: 100%;
 }
 
-
-.modalForm{
+.modalForm {
   padding: 25px;
 
   .modalForm__part {
@@ -34,16 +32,13 @@ div[data-field='field']{
         border-bottom: 1px solid #ff0b26;
       }
     }
-    small{
+    small {
       left: 0;
-
     }
   }
 
-  button{
-    position: relative;
-    top: 150px;
-
+  button {
+    margin-top: 1.875rem;
     border: none;
     background: #000;
 
@@ -51,7 +46,7 @@ div[data-field='field']{
     height: 35px;
 
     border-radius: 10px;
-    transition: all .3s;
+    transition: all 0.3s;
 
     cursor: pointer;
     color: white;
@@ -61,10 +56,8 @@ div[data-field='field']{
       top: 50px;
     }
 
-
-    &:hover{
+    &:hover {
       background: #676767;
     }
   }
 }
-
